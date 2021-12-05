@@ -30,7 +30,7 @@ const drawBoard = () => {
 
 const boxClicked = (e) => {
 	const id = e.target.id;
-	console.log(e);
+
 	if (!spaces[id]) {
 		console.log(spaces[id]);
 		spaces[id] = currentPlayer;
@@ -46,6 +46,13 @@ const boxClicked = (e) => {
 			return;
 		}
 		currentPlayer = currentPlayer === tick_circle ? tick_x : tick_circle;
+		if (currentPlayer === tick_x) {
+			document.getElementById('plyr-2').setAttribute('class', 'active');
+			document.getElementById('plyr-1').setAttribute('class', '');
+		} else {
+			document.getElementById('plyr-1').setAttribute('class', 'active');
+			document.getElementById('plyr-2').setAttribute('class', '');
+		}
 	}
 };
 
